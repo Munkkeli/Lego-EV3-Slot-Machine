@@ -1,9 +1,10 @@
 import lejos.hardware.Sound;
-	public class Aanet{ 
+
+public class Aanet { 
 	  
-	//paras mihin mä pystyn
+	// paras mihin mä pystyn
 	
-		public static void PlayWin() {
+	public static void PlayWin() {
 		 Sound.beepSequence();
 		 Sound.beepSequence();
 		 
@@ -34,5 +35,4 @@ import lejos.hardware.Sound;
 		  Sound.buzz();
 		  Sound.buzz();
 	  }
-	   
 }
