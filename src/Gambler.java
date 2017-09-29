@@ -9,6 +9,7 @@ public class Gambler {
 		Pyoritys pyoritys = new Pyoritys();
 		
 		Naytto naytto = new Naytto(laskuri);
+		naytto.start();
 		
 		while (true) {
 			if (!Vipu.WaitForButton()) break;
