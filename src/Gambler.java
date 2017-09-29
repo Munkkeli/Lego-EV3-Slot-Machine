@@ -3,13 +3,15 @@ import lejos.hardware.Sound;
 public class Gambler {
 
 	public static void main(String[] args) {
-		Laskuri laskuri = new Laskuri();
+		Panos laskuri = new Panos();
 		laskuri.start();
 		
 		Pyoritys pyoritys = new Pyoritys();
 		
+		Naytto naytto = new Naytto(laskuri);
+		
 		while (true) {
-			if (!Vipu.WaitForButton()) return;
+			if (!Vipu.WaitForButton()) break;
 			
 			if (!laskuri.hasRaha(1)) {
 				Sound.beep();
@@ -17,18 +19,11 @@ public class Gambler {
 				pyoritys.Spin();
 			}
 		}
+		
+		naytto.interrupt();
+		pyoritys.interrupt();
+		laskuri.interrupt();
+		
+		return;
 	}
-	
-	public static String Money(int credits) {
-		double money = ((double)credits * 20) / (double)100;
-		return money + "0";
-	}
-	
-	/*
-	public static void DrawInfo() {
-		LCD.clear();
-		LCD.drawString("You have " + Money(credit) + "e", 1, 1);
-		LCD.drawString("Holding " + balance + " coins", 1, 6);
-	}
-	*/
 }

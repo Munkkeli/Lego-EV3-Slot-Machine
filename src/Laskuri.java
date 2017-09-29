@@ -39,4 +39,8 @@ public class Laskuri extends Thread {
 	public void vahennaRaha(int panos) {
 		raha = Math.max(raha - panos, 0);
 	}
+	
+	public String getRahaString() {
+		return (((double)raha * 20) / (double)100) + "0";
+	}
 }

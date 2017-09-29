@@ -1,24 +1,21 @@
 
+public class Panos extends Laskuri {
+	private double panos = 1;
 
-	import lejos.hardware.lcd.LCD;
-
-	public class Panos extends Laskuri{
+	public void raiseBet() {
 		
-		private double panos = 0.20;
-
-		public void raiseBet() {
-			
-			if (getRaha() > 0 && panos >= 0.60) {
-				this.panos = 0.20;
-			} else if (getRaha() > 0){
-				this.panos += 0.20;
-			}
-			LCD.drawString("Panos: " + panos, 0, 7);
+		if (panos >= 3) {
+			panos = 1;
+		} else if (getRaha() > panos + 1) {
+			panos++;
 		}
-		
+	}
 
-		public double getBet() {
-			return panos;
-		}
+	public double getBet() {
+		return panos;
+	}
+	
+	public String getPanosString() {
+		return (((double)panos * 20) / (double)100) + "0";
+	}
 }
-
