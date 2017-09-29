@@ -1,11 +1,7 @@
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
-import lejos.hardware.motor.EV3LargeRegulatedMotor;
-import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.robotics.Color;
-import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
 public class Gambler {
@@ -15,11 +11,8 @@ public class Gambler {
 	public static EV3ColorSensor cs;
 	
 	public static void main(String[] args) {
-		RegulatedMotor m = new EV3LargeRegulatedMotor(MotorPort.D);
-		
 		cs = new EV3ColorSensor(SensorPort.S2);
 		
-		int color = 0;
 		while (true) {
 			
 			if (Button.ESCAPE.isDown()) return;
