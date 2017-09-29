@@ -1,6 +1,6 @@
 
 public class Panos extends Laskuri {
-	private double panos = 1;
+	private int panos = 1;
 
 	public void raiseBet() {
 		
@@ -13,6 +13,10 @@ public class Panos extends Laskuri {
 
 	public double getBet() {
 		return panos;
+	}
+	
+	public void vahennaRaha() {
+		vahennaRaha(panos);
 	}
 	
 	public String getPanosString() {

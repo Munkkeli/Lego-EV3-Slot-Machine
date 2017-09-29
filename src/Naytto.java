@@ -3,9 +3,11 @@ import lejos.utility.Delay;
 
 public class Naytto extends Thread {
 	private Panos panos;
+	private Kaukosaato kaukosaato;
 	
-	public Naytto(Panos panos) {
+	public Naytto(Panos panos, Kaukosaato kaukosaato) {
 		this.panos = panos;
+		this.kaukosaato = kaukosaato;
 	}
 	
 	public void run() {
@@ -17,7 +19,13 @@ public class Naytto extends Thread {
 	
 	public void Draw() {
 		LCD.clear();
-		LCD.drawString("You have " + panos.getRahaString() + "e", 1, 1);
-		LCD.drawString("Your bet is " + panos.getPanosString() + "e", 1, 3);
+		
+		if (!kaukosaato.getLocked()) {
+			LCD.drawString("Sinulla on " + panos.getRahaString() + "e", 1, 1);
+			LCD.drawString("Panoksesi on " + panos.getPanosString() + "e", 1, 3);
+		} else {
+			LCD.drawString("Todista", 1, 1);
+			LCD.drawString("henkilollisyys!", 1, 2);
+		}
 	}
 }

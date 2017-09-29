@@ -4,17 +4,24 @@ import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 
 public class Vipu {
-	public static boolean WaitForButton() {
-		EV3TouchSensor ts = new EV3TouchSensor(SensorPort.S1);
-		float[] sample = new float[ts.sampleSize()];
+	EV3TouchSensor touch;
+	
+	public Vipu() {
+		touch = new EV3TouchSensor(SensorPort.S1);
+	}
+	
+	public boolean WaitForButton() {
+		float[] sample = new float[touch.sampleSize()];
 		boolean down = false;
 		while (!Button.ESCAPE.isDown()) {
-			ts.fetchSample(sample, 0);
+			touch.fetchSample(sample, 0);
 			if (!down && sample[0] == 1) down = true;
-			if (down && sample[0] == 0) break;
+			if (down && sample[0] == 0) return true;
 		}	
-			ts.close();
-		
-		return !Button.ESCAPE.isDown();
+		return false;
 	} 
+	
+	public void interrupt() {
+		touch.close();
+	}
 }

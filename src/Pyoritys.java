@@ -5,6 +5,8 @@ import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
 public class Pyoritys {
+	private Panos panos;
+	
 	private RegulatedMotor rightWheel;
 	private RegulatedMotor middleWheel;
 	private RegulatedMotor leftWheel;
@@ -17,7 +19,9 @@ public class Pyoritys {
 	private int middlePosition = 0;
 	private int leftPosition = 0;
 	
-	public Pyoritys() {
+	public Pyoritys(Panos panos) {
+		this.panos = panos;
+		
 		rightWheel = new EV3LargeRegulatedMotor(MotorPort.A);
 		middleWheel = new EV3LargeRegulatedMotor(MotorPort.B);
 		leftWheel = new EV3LargeRegulatedMotor(MotorPort.C);
@@ -40,7 +44,7 @@ public class Pyoritys {
 		int middleSpin = (int) (Math.random() * 4);
 		int leftSpin = (int) (Math.random() * 4);
 
-		if (Math.random() < 0.8) {
+		if (Math.random() < 0.5) {
 			int offset = (int) (Math.random() * 4);
 
 			rightSpin = ((3 - rightPosition) + offset) % 4;
@@ -52,23 +56,26 @@ public class Pyoritys {
 		middlePosition = (middlePosition + middleSpin) % 4;
 		leftPosition = (leftPosition + leftSpin) % 4;
 
-		int rightOffset = (int) (Math.random() * 3) * 360;
-		int middleOffset = rightOffset + (int) (Math.random() * 3) * 360;
-		int leftOffset = middleOffset + (int) (Math.random() * 3) * 360;
+		int rightOffset = (int) ((Math.random() + 1) * 3) * 360;
+		int middleOffset = (Math.random() > 0.5 ? rightOffset : 0) + (int) ((Math.random() + 1) * 3) * 360;
+		int leftOffset = (Math.random() > 0.5 ? middleOffset : 0) + (int) ((Math.random() + 1) * 3) * 360;
 
-		int spinRight = (rightPosition * 90) + rightOffset;
-		int spinMiddle = (middlePosition * 90) + middleOffset;
-		int spinLeft = (leftPosition * 90) + leftOffset;
+		int spinRight = (rightSpin * 90) + rightOffset;
+		int spinMiddle = (middleSpin * 90) + middleOffset;
+		int spinLeft = (leftSpin * 90) + leftOffset;
 
 		right.Rotate(spinRight);
 		middle.Rotate(spinMiddle);
 		left.Rotate(spinLeft);
 
-		Delay.msDelay(((spinRight / 360) + (spinMiddle / 360) + (spinLeft / 360)) * 550);
+		Delay.msDelay(((spinRight / 360) + (spinMiddle / 360) + (spinLeft / 360)) * 500);
 
 		if (rightPosition == middlePosition && middlePosition == leftPosition) {
-			Aanet.PlayWin();
+			Aanet.PlayBigWin();
 			Button.LEDPattern(4);
+			panos.giveRaha(2);
+		} else {
+			Aanet.PlayLoose();
 		}
 
 		Delay.msDelay(1000);

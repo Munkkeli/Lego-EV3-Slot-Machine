@@ -1,4 +1,5 @@
 import lejos.hardware.Sound;
+import lejos.utility.Delay;
 
 public class Gambler {
 
@@ -6,17 +7,24 @@ public class Gambler {
 		Panos laskuri = new Panos();
 		laskuri.start();
 		
-		Pyoritys pyoritys = new Pyoritys();
+		Kaukosaato kaukosaato = new Kaukosaato();
+		kaukosaato.start();
 		
-		Naytto naytto = new Naytto(laskuri);
+		Pyoritys pyoritys = new Pyoritys(laskuri);
+		
+		Naytto naytto = new Naytto(laskuri, kaukosaato);
 		naytto.start();
 		
+		Vipu vipu = new Vipu();
+		
 		while (true) {
-			if (!Vipu.WaitForButton()) break;
+			if (!vipu.WaitForButton()) break;
 			
-			if (!laskuri.hasRaha(1)) {
+			if (!laskuri.hasRaha(1) || kaukosaato.getLocked()) {
 				Sound.beep();
+				Delay.msDelay(500);
 			} else {
+				laskuri.vahennaRaha();
 				pyoritys.Spin();
 			}
 		}
@@ -24,6 +32,8 @@ public class Gambler {
 		naytto.interrupt();
 		pyoritys.interrupt();
 		laskuri.interrupt();
+		kaukosaato.interrupt();
+		vipu.interrupt();
 		
 		return;
 	}

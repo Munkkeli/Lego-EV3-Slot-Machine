@@ -1,4 +1,5 @@
 import lejos.hardware.Sound;
+import lejos.utility.Delay;
 
 public class Aanet { 
 	  
@@ -16,16 +17,16 @@ public class Aanet {
 		 
 	 }
 	 
-	  public static void PlayBigWin() throws InterruptedException {
+	  public static void PlayBigWin() {
 		  Sound.beepSequenceUp();
 		  Sound.playTone(287,200); 
-	      Thread.sleep(150);         
+	      Delay.msDelay(150);         
 
 	      Sound.playTone(392,200);  
-	      Thread.sleep(150);         
+	      Delay.msDelay(150);         
 
 	      Sound.playTone(440,200);  
-	      Thread.sleep(150);        
+	      Delay.msDelay(150);        
 		  Sound.beepSequenceUp();
 		  Sound.beepSequenceUp();
 	  }
