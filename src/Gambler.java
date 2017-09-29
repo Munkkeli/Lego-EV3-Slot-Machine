@@ -38,7 +38,7 @@ public class Gambler {
 			
 			Delay.msDelay(1000);
 			
-			// Hello world!
+			// Hello world!moi
 			
 			/*boolean coin = false;
 			switch (cs.getColorID()) {
