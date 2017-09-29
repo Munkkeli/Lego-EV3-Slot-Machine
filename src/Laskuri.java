@@ -5,7 +5,7 @@ import lejos.utility.Delay;
 public class Laskuri extends Thread {
 	private int raha = 0;
 
-	public void run() {	
+	public void run() {
 		EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S2);
 		
 		while(!Thread.currentThread().isInterrupted()) {

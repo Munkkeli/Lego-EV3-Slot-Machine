@@ -1,13 +1,22 @@
-
+import lejos.hardware.Sound;
 
 public class Gambler {
 
 	public static void main(String[] args) {
 		Laskuri laskuri = new Laskuri();
-		
 		laskuri.start();
 		
+		Pyoritys pyoritys = new Pyoritys();
 		
+		while (true) {
+			if (!Vipu.WaitForButton()) return;
+			
+			if (!laskuri.hasRaha(1)) {
+				Sound.beep();
+			} else {
+				pyoritys.Spin();
+			}
+		}
 	}
 	
 	public static String Money(int credits) {
