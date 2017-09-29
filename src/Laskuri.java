@@ -1,53 +1,42 @@
-import lejos.hardware.Button;
-import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.robotics.Color;
 import lejos.utility.Delay;
 
-public class Laskuri {
-
+public class Laskuri extends Thread {
 	private int raha = 0;
-	
-	public Laskuri() {
-		
-		this.raha = raha;
-		
-	}
 
-	public void laskuri() {
+	public void run() {	
+		EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S2);
 		
-	EV3ColorSensor cs = new EV3ColorSensor(SensorPort.S3);
-		
-	while(!Button.ESCAPE.isDown())
-	{
+		while(!Thread.currentThread().isInterrupted()) {
+			boolean coin = false;
 
-		switch (cs.getColorID()) {
+			switch (cs.getColorID()) {
+	          case -1:
+	            break;
+	          default:
+	        	  	coin = true;
+	            break;
+	        }
 
-		case Color.BLACK:
-			LCD.drawString("Saldo: " + raha * 0.20, 5, 6);
-			break;
-
-		default:
-			raha += 1;
-			LCD.drawString("Saldo: " + raha * 0.20, 5, 6);
-			Delay.msDelay(1000);
-			break;
+			if (coin) {
+				raha++;
+				Delay.msDelay(500);
+			}
 		}
-		LCD.refresh();
-		Delay.msDelay(200);
-	}
-	cs.close();
+		
+		cs.close();
 	}
 	
-	
-
 	public int getRaha() {
 		return this.raha;
 	}
-
-	public void vahennaRaha(int i) {
-		this.raha -= i;
+	
+	public boolean hasRaha(int panos) {
+		return raha >= panos;
 	}
 
+	public void vahennaRaha(int panos) {
+		raha = Math.max(raha - panos, 0);
+	}
 }
