@@ -1,3 +1,6 @@
+/*
+ * @author Janne Suotsalo
+ */
 import lejos.robotics.RegulatedMotor;
 
 public class Pyora extends Thread {
