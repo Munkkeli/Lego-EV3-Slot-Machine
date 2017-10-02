@@ -1,4 +1,6 @@
-/*
+/**
+ * Pyörittää yksittäistä pyörää omassa säikeessä tietyn määrän asteita
+ * 
  * @author Janne Suotsalo
  */
 import lejos.robotics.RegulatedMotor;
