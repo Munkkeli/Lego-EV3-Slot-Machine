@@ -1,3 +1,9 @@
+/**
+* Pääohjelma joka käynnistaa kaikki sivuohjelmat ja hoitaa pelaamisen
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.Sound;
 import lejos.utility.Delay;
 

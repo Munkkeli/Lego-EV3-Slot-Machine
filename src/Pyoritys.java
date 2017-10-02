@@ -1,3 +1,9 @@
+/**
+* Arpoo voitot, asettaa voittoprosentin ja pyörittää rullia oikeisiin asentoihin
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.Button;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
