@@ -73,7 +73,7 @@ public class Pyoritys {
 		if (rightPosition == middlePosition && middlePosition == leftPosition) {
 			Aanet.PlayBigWin();
 			Button.LEDPattern(4);
-			panos.giveRaha(2);
+			panos.giveRaha(panos.getBet() * 2);
 		} else {
 			Aanet.PlayLoose();
 		}

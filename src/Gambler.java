@@ -7,6 +7,10 @@ public class Gambler {
 		Panos laskuri = new Panos();
 		laskuri.start();
 		
+		Panoskey panos = new Panoskey(laskuri);
+		panos.start();
+		
+		
 		Kaukosaato kaukosaato = new Kaukosaato();
 		kaukosaato.start();
 		
@@ -32,6 +36,7 @@ public class Gambler {
 		naytto.interrupt();
 		pyoritys.interrupt();
 		laskuri.interrupt();
+		panos.interrupt();
 		kaukosaato.interrupt();
 		vipu.interrupt();
 		

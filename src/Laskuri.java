@@ -7,7 +7,7 @@ import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
 public class Laskuri extends Thread {
-	private int raha = 0;
+	private int raha = 1;
 	
 	private RegulatedMotor motor;
 
