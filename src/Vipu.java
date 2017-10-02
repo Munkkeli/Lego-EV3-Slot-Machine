@@ -1,4 +1,6 @@
 /**
+ * Monitoroi vipua ja k‰ynnist‰‰ ohjelman vipua vet‰m‰ll‰
+ * 
  * @author Janne Suotsalo
  */
 import lejos.hardware.Button;
