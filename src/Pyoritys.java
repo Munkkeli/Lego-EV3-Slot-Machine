@@ -45,6 +45,9 @@ public class Pyoritys {
 		left.start();
 	}
 	
+	/**
+	* Käynnistää yhden pelikierroksen ja palauttaa mahdolliset voitot
+	*/
 	public void Spin() {
 		int rightSpin = (int) (Math.random() * 4);
 		int middleSpin = (int) (Math.random() * 4);
@@ -89,6 +92,9 @@ public class Pyoritys {
 		Button.LEDPattern(0);
 	}
 	
+	/**
+	* Keskeyttää ohjelman
+	*/
 	public void interrupt() {
 		right.interrupt();
 		middle.interrupt();

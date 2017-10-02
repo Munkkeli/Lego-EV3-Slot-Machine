@@ -23,6 +23,9 @@ public class Naytto extends Thread {
 		}
 	}
 	
+	/**
+	* Piirtää näytön tiedot uudestaan
+	*/
 	public void Draw() {
 		LCD.clear();
 		

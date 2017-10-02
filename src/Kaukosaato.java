@@ -26,6 +26,11 @@ public class Kaukosaato extends Thread {
 		}
 	}
 	
+	/**
+	* Palauttaa lukituksen arvon.
+	* 
+	* @return boolean Onko kone lukittu.
+	*/
 	public boolean getLocked() {
 		return isLocked;
 	}
