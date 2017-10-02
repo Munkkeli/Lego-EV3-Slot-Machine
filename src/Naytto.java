@@ -1,3 +1,9 @@
+/**
+* Piirtää tiedot robotin näytölle
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.lcd.LCD;
 import lejos.utility.Delay;
 
@@ -17,6 +23,9 @@ public class Naytto extends Thread {
 		}
 	}
 	
+	/**
+	* Piirtää näytön tiedot uudestaan
+	*/
 	public void Draw() {
 		LCD.clear();
 		

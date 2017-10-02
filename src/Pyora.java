@@ -1,3 +1,8 @@
+/**
+ * Pyörittää yksittäistä pyörää omassa säikeessä tietyn määrän asteita
+ * 
+ * @author Janne Suotsalo
+ */
 import lejos.robotics.RegulatedMotor;
 
 public class Pyora extends Thread {
@@ -7,7 +12,11 @@ public class Pyora extends Thread {
 	public Pyora(RegulatedMotor motor) {
 		this.motor = motor;
 	}
-
+/**
+ * Py�ritt�� annetun asteen verran
+ * 
+ * @param angle Kuinka monta astetta py�r�t py�rii
+ */
 	public void Rotate(int angle) {
 		this.angle = angle;
 	}

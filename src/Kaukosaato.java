@@ -1,3 +1,9 @@
+/**
+* Hoitaa kaukoohjaimen lukemisen ja lukituksen asetuksen
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
 
@@ -20,6 +26,11 @@ public class Kaukosaato extends Thread {
 		}
 	}
 	
+	/**
+	* Palauttaa lukituksen arvon.
+	* 
+	* @return boolean Onko kone lukittu.
+	*/
 	public boolean getLocked() {
 		return isLocked;
 	}

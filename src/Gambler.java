@@ -1,8 +1,19 @@
+/**
+* Pääohjelma joka käynnistaa kaikki sivuohjelmat ja hoitaa pelaamisen
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.Sound;
 import lejos.utility.Delay;
 
 public class Gambler {
-
+	
+	/**
+	* Palauttaa lukituksen arvon.
+	* 
+	* @param args Ohjelman käynnistys argumentit
+	*/
 	public static void main(String[] args) {
 		Panos laskuri = new Panos();
 		laskuri.start();
