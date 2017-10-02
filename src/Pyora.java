@@ -12,7 +12,11 @@ public class Pyora extends Thread {
 	public Pyora(RegulatedMotor motor) {
 		this.motor = motor;
 	}
-
+/**
+ * Pyörittää annetun asteen verran
+ * 
+ * @param angle Kuinka monta astetta pyörät pyörii
+ */
 	public void Rotate(int angle) {
 		this.angle = angle;
 	}

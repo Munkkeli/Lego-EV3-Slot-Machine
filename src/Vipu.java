@@ -13,7 +13,11 @@ public class Vipu {
 	public Vipu() {
 		touch = new EV3TouchSensor(SensorPort.S1);
 	}
-	
+	/**
+	 * Odottaa vivun vet‰mist‰
+	 * 
+	 * @return boolean Palauttaa false jos esc painetaan
+	 */
 	public boolean WaitForButton() {
 		float[] sample = new float[touch.sampleSize()];
 		boolean down = false;
@@ -24,7 +28,10 @@ public class Vipu {
 		}	
 		return false;
 	} 
-	
+	/**
+	 * Pys‰ytt‰‰ ohjelman
+	 * 
+	 */
 	public void interrupt() {
 		touch.close();
 	}
