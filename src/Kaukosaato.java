@@ -1,3 +1,9 @@
+/**
+* Hoitaa kaukoohjaimen lukemisen ja lukituksen asetuksen
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
 

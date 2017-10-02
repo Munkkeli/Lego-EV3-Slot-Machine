@@ -1,3 +1,9 @@
+/**
+* Piirtää tiedot robotin näytölle
+*
+* @author  Tuomas Pöyry
+*/
+
 import lejos.hardware.lcd.LCD;
 import lejos.utility.Delay;
 
