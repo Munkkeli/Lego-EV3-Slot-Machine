@@ -1,16 +1,14 @@
-import lejos.hardware.Button;
-import lejos.hardware.lcd.LCD;
-import lejos.utility.Delay;
 /**
- * Muuttaa panoksen suuruutta
- * @author Mikko 
- *
+ * Lis√§√§ panoksen, sen nostamisen ja sen avulla rahan palauttamisen Laskurin toimintoihin.
+ * 
+ * @author Mikko Romo
  */
+
 public class Panos extends Laskuri {
 	private int panos = 1;
 
 	/**
-	 * nostaa panosta 60snt asti
+	 * Nostaa panosta 60snt asti.
 	 */
 	public void raiseBet() {
 		if (panos >= 3) {
@@ -19,24 +17,27 @@ public class Panos extends Laskuri {
 			panos++;
 		}
 	}
+
 	/**
+	 * Palauttaa t√§m√§nhetkisen panoksen.
 	 * 
-	 * @return palauttaa panoksen suuruuden
+	 * @return int T√§m√§nhetkinen panos.
 	 */
 	public int getBet() {
 		return panos;
 	}
 	
 	/**
-	 * v‰hent‰‰ raham‰‰r‰st‰ panoksen verran
+	 * V√§hent√§√§ raham√§√§r√§st√§ panoksen verran.
 	 */
 	public void vahennaRaha() {
 		vahennaRaha(panos);
 	}
 
 	/**
+	 * Palauttaa panoksen suuruuden luettavassa muodossa (0.20).
 	 * 
-	 * @return palauttaa panoksen suuruuden tulostettavassa muodossa
+	 * @return String Panoksen suuruus.
 	 */
 	public String getPanosString() {
 		return (((double) panos * 20) / (double) 100) + "0";

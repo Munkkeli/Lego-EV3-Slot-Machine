@@ -1,5 +1,5 @@
 /**
-* Piirtää tiedot robotin näytölle
+* Piirtää tiedot robotin näytölle.
 *
 * @author  Tuomas Pöyry
 */
