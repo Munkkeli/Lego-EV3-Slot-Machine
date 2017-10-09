@@ -12,10 +12,16 @@ public class Kaukosaato extends Thread {
 
 	private boolean isLocked = false;
 	
+	/**
+	* Luo uuden olion.
+	*/
 	public Kaukosaato() {
 		infraredSensor = new EV3IRSensor(SensorPort.S3);
 	}
 	
+	/**
+	* Aloittaa komentojen kuuntelemisen.
+	*/
 	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
 			int remoteCommand = infraredSensor.getRemoteCommand(0);

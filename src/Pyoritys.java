@@ -24,6 +24,11 @@ public class Pyoritys {
 	private int middlePosition = 0;
 	private int leftPosition = 0;
 	
+	/**
+	* Luo uuden olion ja konfiguroi moottorit.
+	* 
+	* @param panos Panos olio jonka mukaan kone palauttaa voittoja.
+	*/
 	public Pyoritys(Panos panos) {
 		this.panos = panos;
 		

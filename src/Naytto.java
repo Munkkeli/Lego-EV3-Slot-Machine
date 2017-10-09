@@ -11,11 +11,21 @@ public class Naytto extends Thread {
 	private Panos panos;
 	private Kaukosaato kaukosaato;
 	
+	/**
+	* Palauttaa lukituksen arvon.
+	* 
+	* @param panos Panos olio josta näytön tiedot haetaan.
+	* @param kaukosaato Kaukosaato olio josta näyttö kuuntelee koneen lukituksen tilaa.
+	*/
 	public Naytto(Panos panos, Kaukosaato kaukosaato) {
 		this.panos = panos;
 		this.kaukosaato = kaukosaato;
 	}
 	
+	/**
+	* Aloittaa näytön piirtämisen.
+	* Piirtää tiedot uudestaan 2 kertaa sekunnissa.
+	*/
 	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
 			Draw();

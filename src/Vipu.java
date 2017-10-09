@@ -1,5 +1,5 @@
 /**
- * Monitoroi vipua ja k‰ynnist‰‰ ohjelman vipua vet‰m‰ll‰
+ * Monitoroi vipua ja k√§ynnist√§√§ ohjelman vipua vet√§m√§ll√§
  * 
  * @author Janne Suotsalo
  */
@@ -10,13 +10,17 @@ import lejos.hardware.sensor.EV3TouchSensor;
 public class Vipu {
 	EV3TouchSensor touch;
 	
+	/**
+	* Luo uuden olion ja k√§ynnist√§√§ v√§risensorin.
+	*/
 	public Vipu() {
 		touch = new EV3TouchSensor(SensorPort.S1);
 	}
+
 	/**
-	 * Odottaa vivun vet‰mist‰
+	 * Odottaa vivun vet√§mist√§.
 	 * 
-	 * @return boolean Palauttaa false jos esc painetaan
+	 * @return boolean Palauttaa false jos esc painetaan, ja true jos vipua vedet√§√§n.
 	 */
 	public boolean WaitForButton() {
 		float[] sample = new float[touch.sampleSize()];
@@ -28,9 +32,9 @@ public class Vipu {
 		}	
 		return false;
 	} 
+
 	/**
-	 * Pys‰ytt‰‰ ohjelman
-	 * 
+	 * Pys√§ytt√§√§ ohjelman.
 	 */
 	public void interrupt() {
 		touch.close();

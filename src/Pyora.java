@@ -8,19 +8,28 @@ import lejos.robotics.RegulatedMotor;
 public class Pyora extends Thread {
 	private RegulatedMotor motor;
 	private int angle = 0;
-
+	
+	/**
+	* Luo uuden olion.
+	* 
+	* @param motor Moottori jota t√§m√§ olio liikuttelee.
+	*/
 	public Pyora(RegulatedMotor motor) {
 		this.motor = motor;
 	}
-/**
- * Pyˆritt‰‰ annetun asteen verran
- * 
- * @param angle Kuinka monta astetta pyˆr‰t pyˆrii
- */
+
+	/**
+	 * Py√∂ritt√§√§ annetun asteen verran
+	 * 
+	 * @param angle Kuinka monta astetta py√∂r√§t py√∂rii
+	 */
 	public void Rotate(int angle) {
 		this.angle = angle;
 	}
-
+	
+	/**
+	* Aloittaa moottorin liikuttelemisen.
+	*/
 	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
 			if (angle != 0) {
